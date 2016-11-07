@@ -11,7 +11,7 @@ class Guesser(object):
         self._build_model()
 
     def _build_lib(self):
-        with open(os.getcwd() + '/chinese_name_lib.txt', 'r') as f:  
+        with open(os.path.join(os.path.dirname(__file__),'chinese_name_lib.txt'), 'r') as f:  
             data = f.read()  
             self.chinese_name_lib = data.split()
 
@@ -20,7 +20,7 @@ class Guesser(object):
         self.female_total = 0
         self.freq = {}
 
-        with open(os.getcwd() + '/pinyin_dataset.txt', 'r') as f:
+        with open(os.path.join(os.path.dirname(__file__),'pinyin_dataset.txt'), 'r') as f:
             for line in f:
             	line = line.strip('\n')
                 pinyin, male, female = line.split()

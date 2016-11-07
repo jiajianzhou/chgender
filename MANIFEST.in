@@ -1,0 +1,1 @@
+include chgender/chinese_name_lib.txt chgender/pinyin_dataset.txt README.md LICENSE
