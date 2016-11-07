@@ -2,24 +2,24 @@
 import os
 import chgender
 
-male = 0
-female = 0
-i = 0
+mcount = 0
+fcount = 0
+correct = 0
+
 
 with open(os.getcwd() + '/female.txt', 'r') as f:
     for name in f:
     	name = name.strip('\n')
-    	i = i + 1
-        if chgender.guess(name) == 0:
-        	female = female + 1
+        fcount = fcount + 1
+        if chgender.guess(name)[0] == 'female':
+        	correct = correct + 1
 
 with open(os.getcwd() + '/male.txt', 'r') as f:
     for name in f:
     	name = name.strip('\n')
-    	i = i + 1
-        if chgender.guess(name) == 1:
-        	male = male + 1
+        mcount = mcount + 1
+        if chgender.guess(name)[0] == 'male':
+        	correct = correct + 1
             
-result = 1. * (female + male)/i
-print("accuracy: ")
-print(result)
+accuracy = 1. * correct/(fcount + mcount)
+print('total male input: {} \ntotal female input: {} \naverage accuracy: {}' ''.format(mcount, fcount, accuracy))
